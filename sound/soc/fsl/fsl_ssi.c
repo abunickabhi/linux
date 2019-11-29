@@ -993,18 +993,18 @@ static int _fsl_ssi_set_dai_fmt(struct fsl_ssi *ssi, unsigned int fmt)
 
 /**
  * Configure Digital Audio Interface (DAI) Format
- */
+
 static int fsl_ssi_set_dai_fmt(struct snd_soc_dai *dai, unsigned int fmt)
 {
 	struct fsl_ssi *ssi = snd_soc_dai_get_drvdata(dai);
 
-	/* AC97 configured DAIFMT earlier in the probe() */
+	
 	if (fsl_ssi_is_ac97(ssi))
 		return 0;
 
 	return _fsl_ssi_set_dai_fmt(ssi, fmt);
 }
-
+ */
 /**
  * Set TDM slot number and slot width
  */
@@ -1100,6 +1100,7 @@ static int fsl_ssi_dai_probe(struct snd_soc_dai *dai)
 					  &ssi->dma_params_rx);
 
 	return 0;
+	// Probing of the PCM MISO and MOSI ports also have to be done.
 }
 
 static const struct snd_soc_dai_ops fsl_ssi_dai_ops = {
